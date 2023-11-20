@@ -3,23 +3,25 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
-        crearArchivoEnDirectorio("prueba1.txt", "archivos");
-        renombrarArchivo("archivos/prueba1.txt", "test1.txt");
+
+
+        //crearArchivoEnDirectorio("prueba1.txt", "archivos");
+        //renombrarArchivo("archivos/prueba1.txt", "test1.txt");
         //borrarArchivo("archivos/test1.txt");
-        crearArchivoAutoConWriters();
+        //crearArchivoAutoConWriters();
 
 
-        //append a test1.txt
+        // append a test1.txt
         String contenido1 = "El\nespacio\nno\nfunciona,\nasí\nque\nescribo\nen\nlíneas";
         String contenido2 = "Ya está arreglado\nNo te preocupes";
 
-        anadirLineaConFileWriter("archivos/test1.txt", contenido1);
-        anadirLineaConBufferedWriter("archivos/test1.txt", contenido2);
+        //anadirLineaConFileWriter("archivos/test1.txt", contenido1);
+        //anadirLineaConBufferedWriter("archivos/test1.txt", contenido2);
 
 
         //lectura
-        leerCaracterACaracter("archivos/test1.txt");
-        leerLineaALinea("archivos/test1.txt");
+        //leerCaracterACaracter("archivos/test1.txt");
+        //leerLineaALinea("archivos/test1.txt");
 
         //Copiado de archivos
         copiarArchivo("archivos/image.png", "archivos/mario.png");
@@ -65,7 +67,8 @@ public class Main {
         String nuevaRuta = archivoActual.getParent() + File.separator + nuevoNombre;
         File nuevoArchivo = new File(nuevaRuta);
 
-        if (archivoActual.renameTo(nuevoArchivo)) {
+        boolean exito = archivoActual.renameTo(nuevoArchivo);
+        if (exito) {
             System.out.println("Archivo renombrado exitosamente a: " + nuevoNombre);
         } else {
             System.out.println("No se pudo renombrar el archivo.");
@@ -146,11 +149,11 @@ public class Main {
 
             while ((cantidadLeida = fis.read(buffer)) != -1) {
                 fos.write(buffer, 0, cantidadLeida);
-                totalLeido+=cantidadLeida;
+                //totalLeido+=cantidadLeida;
             }
 
             System.out.println("Archivo copiado con éxito.");
-            System.out.println("Cantidad leída:" + totalLeido);
+            //System.out.println("Cantidad leída:" + totalLeido);
 
         } catch (IOException e) {
             e.printStackTrace();
